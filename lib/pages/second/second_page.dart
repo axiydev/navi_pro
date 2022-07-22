@@ -37,6 +37,7 @@ class _SecondPageState extends State<SecondPage> {
                 elevation: 0.0,
                 onPressed: () {
                   if (Navigator.canPop(context)) {
+                    ///map qaytaryapmiz
                     Navigator.of(context)
                         .pop({"data": widget.data, 'id': widget.id});
                   }

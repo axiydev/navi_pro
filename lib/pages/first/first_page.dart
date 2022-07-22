@@ -14,6 +14,7 @@ class _FirstPageState extends State<FirstPage> {
   Map<String, dynamic>? _firstData;
 
   void _onChnageRoute() async {
+    ///malumotni olish
     _firstData = await Navigator.push(
         context,
         CupertinoPageRoute(
