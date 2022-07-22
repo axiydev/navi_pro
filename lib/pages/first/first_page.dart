@@ -11,14 +11,15 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
-  String? _firstData;
+  Map<String, dynamic>? _firstData;
 
-  Future<void> _onChnageRoute() async {
+  void _onChnageRoute() async {
     _firstData = await Navigator.push(
         context,
         CupertinoPageRoute(
             builder: (context) => const SecondPage(
                   data: '94895384',
+                  id: 789,
                 )));
     setState(() {});
   }
@@ -32,13 +33,15 @@ class _FirstPageState extends State<FirstPage> {
       body: Center(
         child: Text(
           "First Page  $_firstData",
-          style: const TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+              fontSize: 35, fontWeight: FontWeight.bold, color: Colors.blue),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
           elevation: 0.0,
-          onPressed: () async {
+          onPressed: () {
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
@@ -46,7 +49,7 @@ class _FirstPageState extends State<FirstPage> {
             //               data: "12345",
             //             )));
 
-            await _onChnageRoute();
+            _onChnageRoute();
           },
           label: const Text("Second Page")),
     );

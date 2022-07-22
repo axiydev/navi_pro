@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class SecondPage extends StatefulWidget {
   final String? data;
+  final int? id;
   static const String routeName = '/second';
-  const SecondPage({this.data, super.key});
+  const SecondPage({this.data, super.key, this.id});
 
   @override
   State<SecondPage> createState() => _SecondPageState();
@@ -18,8 +19,13 @@ class _SecondPageState extends State<SecondPage> {
         ),
         body: Center(
           child: Text(
-            widget.data ?? "Second Page",
-            style: const TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+            "Second Page ${widget.data}",
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 35,
+              color: Colors.blue,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -31,7 +37,8 @@ class _SecondPageState extends State<SecondPage> {
                 elevation: 0.0,
                 onPressed: () {
                   if (Navigator.canPop(context)) {
-                    Navigator.of(context).pop(widget.data);
+                    Navigator.of(context)
+                        .pop({"data": widget.data, 'id': widget.id});
                   }
                 },
                 label: const Text("First Page")),

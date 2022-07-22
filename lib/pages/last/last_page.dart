@@ -30,8 +30,10 @@ class _LastPageState extends State<LastPage> {
       ),
       body: Center(
         child: Text(
-          _data.toString(),
-          style: const TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+          "Last Page $_data",
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+              fontSize: 35, fontWeight: FontWeight.bold, color: Colors.blue),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
